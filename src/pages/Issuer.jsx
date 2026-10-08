@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import QRCode from 'qrcode';
-import { Key, Link as LinkIcon, Download, RefreshCw } from 'lucide-react';
+import { Key, Link as LinkIcon, Download, RefreshCw, QrCode } from 'lucide-react';
 import { generateKeyPair, exportPublicKey, exportPrivateKey, signData } from '../utils/crypto';
 import '../styles/issuer.css';
 

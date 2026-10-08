@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { Shield, QrCode, ShieldCheck, Github } from 'lucide-react';
+import { Shield, QrCode, ShieldCheck } from 'lucide-react';
 import Home from './pages/Home';
 import Issuer from './pages/Issuer';
 import Scanner from './pages/Scanner';
