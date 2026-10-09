@@ -60,14 +60,16 @@ export function analyzeURL(urlStr) {
       score: Math.min(score, 100),
       riskLevel,
       reasons,
-      url: urlStr
+      url: urlStr,
+      isUrl: true
     };
   } catch (error) {
     return {
-      score: 100,
-      riskLevel: "Dangerous",
-      reasons: ["Invalid URL format. Could not be parsed."],
-      url: urlStr
+      score: 0,
+      riskLevel: "Safe",
+      reasons: ["Data is plain text, not a clickable URL."],
+      url: urlStr,
+      isUrl: false
     };
   }
 }

@@ -158,7 +158,7 @@ export default function Scanner() {
 
                 {verificationStatus === 'valid' && analysisResult && (
                   <div className="result-step animate-fade-in animate-delay-1">
-                    <h4>URL Threat Analysis</h4>
+                    <h4>{analysisResult.isUrl === false ? "Data Analysis" : "URL Threat Analysis"}</h4>
                     <div className={`analysis-box border-${analysisResult.riskLevel.toLowerCase()}`}>
                       <div className="analysis-header">
                         {getRiskIcon(analysisResult.riskLevel)}
@@ -166,7 +166,9 @@ export default function Scanner() {
                           <span className={`risk-text text-${analysisResult.riskLevel.toLowerCase()}`}>
                             {analysisResult.riskLevel}
                           </span>
-                          <span className="score-text">Risk Score: {analysisResult.score}/100</span>
+                          {analysisResult.isUrl !== false && (
+                            <span className="score-text">Risk Score: {analysisResult.score}/100</span>
+                          )}
                         </div>
                       </div>
                       
@@ -184,7 +186,14 @@ export default function Scanner() {
                       )}
 
                       <div className="action-buttons">
-                        {analysisResult.riskLevel === 'Safe' ? (
+                        {analysisResult.isUrl === false ? (
+                          <button 
+                            className="btn btn-primary w-full" 
+                            onClick={() => navigator.clipboard.writeText(analysisResult.url)}
+                          >
+                            Copy Data
+                          </button>
+                        ) : analysisResult.riskLevel === 'Safe' ? (
                           <a href={analysisResult.url} target="_blank" rel="noopener noreferrer" className="btn btn-primary w-full">
                             <ExternalLink size={18} /> Proceed Safely
                           </a>
