@@ -55,8 +55,8 @@ export default function Issuer() {
       
       // 3. Generate QR code
       const qrDataUrl = await QRCode.toDataURL(JSON.stringify(payload), {
-        width: 300,
-        margin: 2,
+        width: 200,
+        margin: 4,
         color: {
           dark: '#000000',
           light: '#ffffff'

@@ -30,7 +30,7 @@ export default function Scanner() {
       if (!scannerRef.current) {
         scannerRef.current = new Html5QrcodeScanner(
           "reader",
-          { fps: 10, qrbox: { width: 250, height: 250 } },
+          { fps: 10 },
           /* verbose= */ false
         );
         scannerRef.current.render(onScanSuccess, onScanFailure);
